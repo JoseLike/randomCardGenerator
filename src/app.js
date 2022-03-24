@@ -5,7 +5,11 @@ import "./style.css";
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
 
-const baraja = [
+const botonRefresh = document.querySelector("#refresh");
+const botonReset = document.querySelector("#reset");
+const iconos = document.querySelector(".icono");
+const baraja = [];
+const numero = [
   "A",
   "2",
   "3",
@@ -21,10 +25,21 @@ const baraja = [
   "K"
 ];
 const palo = ["♦", "♥", "♠", "♣"];
+const generarBaraja = () => {
+  for (let n of numero) {
+    for (let p of palo) {
+      baraja.push({ n, p });
+    }
+  }
+  console.log(baraja);
+};
+generarBaraja();
 
-const picrandom = array => {
-  let random = Math.floor(Math.random() * array.length);
-  return random;
+const generarCarta = () => {
+  let random = Math.floor(Math.random() * 51);
+
+  const numeroSelec = baraja[random].n;
+  const paloSelec = palo[random].p;
 };
 
 window.onload = function() {
