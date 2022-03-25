@@ -37,10 +37,17 @@ generarBaraja();
 
 const generarCarta = () => {
   let random = Math.floor(Math.random() * 51);
-
-  const numeroSelec = baraja[random].n;
-  const paloSelec = palo[random].p;
+  const numeroSelec = baraja[random][0];
+  const paloSelec = baraja[random][1];
+  carta = [numeroSelec, paloSelec];
+  barajaSalida.push(carta);
+  baraja.splice(random, 1);
+  return carta, barajaSalida;
 };
+generarCarta();
+console.log(carta);
+console.log(barajaSalida);
+console.log(baraja);
 
 window.onload = function() {
   //write your code here
