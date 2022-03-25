@@ -8,7 +8,9 @@ import "./assets/img/4geeks.ico";
 const botonRefresh = document.querySelector("#refresh");
 const botonReset = document.querySelector("#reset");
 const iconos = document.querySelector(".icono");
+var carta;
 const baraja = [];
+const barajaSalida = [];
 const numero = [
   "A",
   "2",
@@ -28,7 +30,7 @@ const palo = ["♦", "♥", "♠", "♣"];
 const generarBaraja = () => {
   for (let n of numero) {
     for (let p of palo) {
-      baraja.push({ n, p });
+      baraja.push([n, p]);
     }
   }
   console.log(baraja);
