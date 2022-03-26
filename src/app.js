@@ -2,12 +2,11 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
-
 const botonRefresh = document.querySelector("#refresh");
 const botonReset = document.querySelector("#reset");
-const iconos = document.querySelector(".icono");
+const icono1 = document.querySelector(".icono1");
+const icono2 = document.querySelector(".icono2");
+const numeroCarta = document.querySelector(".numero");
 var carta;
 const baraja = [];
 const barajaSalida = [];
@@ -27,31 +26,48 @@ const numero = [
   "K"
 ];
 const palo = ["♦", "♥", "♠", "♣"];
+
 const generarBaraja = () => {
   for (let n of numero) {
     for (let p of palo) {
       baraja.push([n, p]);
     }
   }
-  console.log(baraja);
+  return baraja;
 };
 generarBaraja();
 
 const generarCarta = () => {
-  let random = Math.floor(Math.random() * 51);
+  let random = Math.floor(Math.random() * baraja.length);
   const numeroSelec = baraja[random][0];
   const paloSelec = baraja[random][1];
   carta = [numeroSelec, paloSelec];
   barajaSalida.push(carta);
   baraja.splice(random, 1);
+  icono1.innerHTML = paloSelec;
+  icono2.innerHTML = paloSelec;
+  numeroCarta.innerHTML = numeroSelec;
+  console.log(carta);
+  console.log(barajaSalida);
+  console.log(random);
   return carta, barajaSalida;
 };
-generarCarta();
+
+const reseteo = () => {
+  barajaSalida.splice(0, barajaSalida.length);
+  baraja.splice(0, baraja.length);
+  generarBaraja();
+  console.log(barajaSalida);
+  console.log(baraja);
+};
+
 console.log(carta);
 console.log(barajaSalida);
 console.log(baraja);
 
+botonRefresh.addEventListener("click", generarCarta, false);
+botonReset.addEventListener("click", reseteo, false);
 window.onload = function() {
-  //write your code here
+  generarCarta();
   console.log("Hello Rigo from the console!");
 };
