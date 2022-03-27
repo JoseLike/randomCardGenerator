@@ -38,19 +38,23 @@ const generarBaraja = () => {
 generarBaraja();
 
 const generarCarta = () => {
-  let random = Math.floor(Math.random() * baraja.length);
-  const numeroSelec = baraja[random][0];
-  const paloSelec = baraja[random][1];
-  carta = [numeroSelec, paloSelec];
-  barajaSalida.push(carta);
-  baraja.splice(random, 1);
-  icono1.innerHTML = paloSelec;
-  icono2.innerHTML = paloSelec;
-  numeroCarta.innerHTML = numeroSelec;
-  console.log(carta);
-  console.log(barajaSalida);
-  console.log(random);
-  return carta, barajaSalida;
+  if (baraja.length === 0) {
+    alert("No quedan mas combinaciones! Resetea la baraja");
+  } else {
+    let random = Math.floor(Math.random() * baraja.length);
+    const numeroSelec = baraja[random][0];
+    const paloSelec = baraja[random][1];
+    carta = [numeroSelec, paloSelec];
+    barajaSalida.push(carta);
+    baraja.splice(random, 1);
+    icono1.innerHTML = paloSelec;
+    icono2.innerHTML = paloSelec;
+    numeroCarta.innerHTML = numeroSelec;
+    console.log(carta);
+    console.log(barajaSalida);
+    console.log(random);
+    return carta, barajaSalida;
+  }
 };
 
 const reseteo = () => {
