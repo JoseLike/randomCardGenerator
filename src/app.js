@@ -50,10 +50,6 @@ const generarCarta = () => {
     icono1.innerHTML = paloSelec;
     icono2.innerHTML = paloSelec;
     numeroCarta.innerHTML = numeroSelec;
-    console.log(carta);
-    console.log(barajaSalida);
-    console.log(random);
-    return carta, barajaSalida;
   }
 };
 
@@ -61,16 +57,11 @@ const reseteo = () => {
   barajaSalida.splice(0, barajaSalida.length);
   baraja.splice(0, baraja.length);
   generarBaraja();
-  console.log(barajaSalida);
-  console.log(baraja);
 };
-
-console.log(carta);
-console.log(barajaSalida);
-console.log(baraja);
 
 botonRefresh.addEventListener("click", generarCarta, false);
 botonReset.addEventListener("click", reseteo, false);
+
 window.onload = function() {
   generarCarta();
   console.log("Hello Rigo from the console!");

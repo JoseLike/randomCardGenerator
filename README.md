@@ -1,52 +1,46 @@
-# Hello World with Vanilla JS
+# Random Card Generator
 
-Start coding in 30 seconds by opening this template in gitpod:
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io#https://github.com/4GeeksAcademy/vanillajs-hello.git)
+Creando una landing page la cual es un generador de cartas de Poker aleatorias. Se muestran todas las combinaciones posibles y se resetean al recargar la pagina o al pulsar el boton de reset.
 
-### Manual Installation
+### Pre-requisitos 📋
 
-1) Remember to install the npm packages first:
-```
-$ npm install
-```
+1. Ordenador o dispositivo movil.
+2. Programa donde copiar el repositorio. (Gitpod, VisualStudioCode, Pycharm ....)
+3. Navegador web donde visualizar el resultado del codigo.
 
-2) Build and Start coding!
 
-Build the application for the first time...
+## Construido con 🛠️
 
-```
-$ npm run start
-```
+* [HTML5] 
+* [CSS3]  
+* [Javascript](https://www.javascript.com/) - Usado para generar interactividad del DOM.
+* [Bootstrap v5.1.3](https://getbootstrap.com/) - Libreria para el diseño del HTML.
 
-And start coding your Vanilla.js application, update the `src/index.html`, `src/index.css` or `src/app.js` depending on your needs.
 
-## FAQ
+## Deployment
 
-#### 1) How do I run my code?
+Para lanzar este proyecto introduce en la consola el codigo de la ventana inferior, posteriormente si no se muestra el resultado escibre localhost en el buscador.
 
-- Type on the command line `$ npm run start` and type localhost on the browser.
-
-#### 2) Where do I write my code?
-It depends on the language, but you have `./src/js/app.js`, `./src/style/index.css` and `./isrc/index.html` respectively, you can add new `.html` as you please, just make sure to include import it on the index.js.
-
-__Note:__ remember that the JS workflow starts inside `window.onload`.
-
-#### 3) I don't see my changes.
-
-Everytime you change any file inside the `./src` folder the website public URL will automatically refresh the changes (it's a process called hot deploy)
-Remember also to refresh cleaning the cache (command+shift+r on mac, control+shift+r on pc & linux)
-
-#### 4) How do I include more images on my project?
-Add them inside the `./src/assets/img` folder and import them from any of your JS files. E.g: `import "../assets/img/rigo-baby.jpg";`
-
-#### 5) How do I include more JS files?
-Just add the files into the JS folder and import the file/variables into your index.js. E.g: `import myVar from "./file2.js"`
-
-#### 6) How do I publish the website?
-
-This boilerplate is 100% compatible with the free github pages hosting. Publish your website by running:
-```sh
-$ npm run deploy
+```bash
+  $ npm run start
 ```
 
-Very easy and in just one step!  Push to your __master__ branch and use the free hosting that comes with [GitHub pages](https://help.github.com/articles/configuring-a-publishing-source-for-github-pages/#enabling-github-pages-to-publish-your-site-from-master-or-gh-pages), the project is ready to be published. Remember to choose to run the Github Page from your master branch.
+
+
+## Estructura y explicación del codigo ⚙️
+
+* La estructura del ejercicio se basa en crear un generador de cartas de Poker aleatorio.
+* En el HTML se crea una estructura basica de un div contenedor el cual sera la carta. Ese div se divide en 3. La parte superior e inferior seran el icono del palo. Y en medio irá el número.
+* Debajo de la carta se situan dos botones. Uno de "next card enlazado a la funcion: "generarCarta" el cual generará una nueva carta aleatoria y no repetida. El boton de Reset, esta enlazado a la funcion: "reseteo". Este limpia los arrays y vuelve a generar la baraja principal.
+* Estructura del JS: 
+- En primer lugar se declaran todas las variables que utilizaremos, tanto para las funciones como para el DOM.
+- Posteriormente declaramos las funciones: generarBaraja() hace un nested for loop de los arrays palo y numero con todas las combinaciones posibles de Poker y guardandolo en un nuevo array llamado Baraja. Esta funcion se llama en el JS para generar una baraja cada vez que se inicia el codigo. 
+- La funcion generarCarta(), Se crea un condicional el cual lee la longitud del array Baraja. Si esta es 0, despliega una alerta al usuario para advertirle que no quedan combinaciones y que resete la baraja. De lo contrario, Coge un indice random de Baraja. De este indice extraemos el numero y palo y los inserta cada uno en una variable(numeroSelec y paloSelec), posteriormente en la variable carta se insertan esas variables en forma de Array. Esa carta la empujamos en el array barajaSalida el cual almacenara todos los resultados ya mostrados al usuario. En la misma funcion se insertan en el html los resultados.
+* La funcion reseteo(), limpia los arrays: baraja y barajaSalida, posteriormente llama a la funcion generarBaraja() pàra volver a generar el array de combinaciones "baraja".
+
+
+## Autor ✒️
+
+* **Jose Luis Gil** - *Ejercicio completo* - [JoseLike](https://github.com/JoseLike)
+
+También puedes mirar la lista de todos los [contribuyentes](https://github.com/JoseLike/excuse-generator/contributors) quíenes han participado en este 
