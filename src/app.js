@@ -7,7 +7,6 @@ const botonReset = document.querySelector("#reset");
 const icono1 = document.querySelector(".icono1");
 const icono2 = document.querySelector(".icono2");
 const numeroCarta = document.querySelector(".numero");
-var carta;
 const baraja = [];
 const barajaSalida = [];
 const numero = [
@@ -38,6 +37,7 @@ const generarBaraja = () => {
 generarBaraja();
 
 const generarCarta = () => {
+  let carta;
   if (baraja.length === 0) {
     alert("No quedan mas combinaciones! Resetea la baraja");
   } else {
@@ -57,6 +57,7 @@ const reseteo = () => {
   barajaSalida.splice(0, barajaSalida.length);
   baraja.splice(0, baraja.length);
   generarBaraja();
+  alert("Baraja reseteada!");
 };
 
 botonRefresh.addEventListener("click", generarCarta, false);
